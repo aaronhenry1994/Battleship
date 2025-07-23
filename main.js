@@ -1,9 +1,29 @@
 class Ship {
-    constructor(length) {
-        this.length = length;
+    constructor(long, holes, sunk) {
+        this.long = long;
+        this.holes = holes;
+        this.sunk = sunk;
+    };
+
+    hit(shot) {
+
+        if (shot == false) {
+            return this.holes;
+        };
+        if (shot == true) {
+            return this.holes + 1;
+        };
+    };
+
+    isSunk(long, holes) {
+
+        if (holes === long) {
+            this.long = 0;
+            return this.sunk = true;
+        };
     };
 };
 
-let ship1 = new Ship(2, 0, false);
+let chronicle = new Ship(2, 0, false);
 
 module.exports = Ship;

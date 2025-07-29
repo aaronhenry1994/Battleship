@@ -1,8 +1,7 @@
-const Gameboard = require('../main');
-const Node = require('../main');
+const Gameboard = require('../src/gameboard');
 
-let block = new Node(1, 1)
+let box = new Gameboard;
 
-test ('Creates the first node', () => {
-    expect(block).toBe(x = 1, y = 1)
-});
+test ('Creates a 10 by 10 board', () => {
+    expect(box.createBoard(10, 10)).toBe(10, 10);
+})

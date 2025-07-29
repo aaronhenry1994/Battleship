@@ -1,21 +1,3 @@
-class Node {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-    };
-};
-
-let block = new Node(1, 1);
-console.log(block);
-
-class Gameboard {
-    
-};
-
-let board = new Gameboard;
-
-module.exports = Gameboard;
-
 class Ship {
     constructor(long, holes, sunk) {
         this.long = long;

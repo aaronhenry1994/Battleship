@@ -1,4 +1,4 @@
-const Ship = require('../main');
+const Ship = require('../src/ship');
 
 const abernathy = new Ship(2, 0, false)
 

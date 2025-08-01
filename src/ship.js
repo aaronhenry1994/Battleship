@@ -1,5 +1,6 @@
 class Ship {
-    constructor(long, holes, sunk) {
+    constructor(position, long, holes, sunk) {
+        this.position = position;
         this.long = long;
         this.holes = holes;
         this.sunk = sunk;
@@ -24,6 +25,6 @@ class Ship {
     };
 };
 
-let chronicle = new Ship(2, 0, false);
+let chronicle = new Ship((1, 2), 2, 0, false);
 
 module.exports = Ship;

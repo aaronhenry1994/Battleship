@@ -19,8 +19,14 @@ class Gameboard {
         return this.board
     };
 
-    placeShip() {
-
+    placeShip(x, y) {
+        let coordinates = [];
+        position = {
+            x: x,
+            y: y,
+        };
+        coordinates.push(position);
+        return coordinates;
     };
 };
 

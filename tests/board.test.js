@@ -9,3 +9,7 @@ test ('Creates a 10 by 10 board', () => {
 test ('Returns a ship with a length of a two horizontally', () => {
     expect(box.placeShip(1, 2, 2, true, false)).toEqual({"holes": 0, "long": 1, "position": [{"x": 1, "y": 2}], "sunk": false} );
 });
+
+test ('Compares ship coordinates and hits', () => {
+    expect(box.receiveAttack(1, 2)).toEqual([[{ x: 1, y: 2 }]]);
+});

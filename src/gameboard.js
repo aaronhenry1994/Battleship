@@ -12,6 +12,7 @@ class Gameboard {
     board = [];
 
     arr = [];
+    ships = [];
     
     createBoard() {
         for (let x = 0; x < 10; x++) {
@@ -23,7 +24,7 @@ class Gameboard {
         return this.board
     };
 
-    placeShip(x, y, length, horizontal, vertical) {
+    placeShip(x, y, length, direction) {
         position = {
             x: x,
             y: y,
@@ -35,23 +36,28 @@ class Gameboard {
         this.arr.push(position);
 
         if (length = 1) {
+            this.ships.push(coordinates);
             return boat = new Ship(coordinates, 1, 0, false);
         }
-        if (length = 2 && horizontal === true) {
+        if (length = 2 && direction === 'horizontal') {
             coordinates.push(([x+1, y]))
-            return boat = new Ship(coordinates, 2, 0, false, horizontal);
+            this.ships.push(coordinates);
+            return boat = new Ship(coordinates, 2, 0, false, 'horizontal');
         };
-        if (length = 3 && horizontal === true) {
+        if (length = 3 && direction === 'horizontal') {
+            this.ships.push(coordinates);
             coordinates.push(([x+2, y]));
-            return boat = new Ship(coordinates, 3, 0, false, horizontal);
+            return boat = new Ship(coordinates, 3, 0, false, 'horizontal');
         };
-        if (length = 2 && vertical === true) {
+        if (length = 2 && direction === 'vertical') {
+            this.ships.push(coordinates);
             coordinates.push(([x, y + 1]))
-            return boat = new Ship(coordinates, 2, 0, false, vertical);
+            return boat = new Ship(coordinates, 2, 0, false, 'vertical');
         };
-        if (length = 3 && vertical === true) {
+        if (length = 3 && direction === 'vertical') {
+            this.ships.push(coordinates);
             coordinates.push(([x, y + 2]));
-            return boat = new Ship(coordinates, 3, 0, false, vertical);
+            return boat = new Ship(coordinates, 3, 0, false, 'vertical');
         };
     };
 
@@ -67,9 +73,9 @@ class Gameboard {
         
         let misses = [];
         let hits = [];
-
         if (this.arr.includes(shots)) {
             hits.push(shots);
+            boat.hits = 1;
             return hits;
         }
         else {
@@ -77,9 +83,23 @@ class Gameboard {
             return misses;
         };
     };
+
+    detectSinkage(array) {
+        if (array.length === 1) {
+            return "There are still two ships remaining."
+        }
+        if (array.length === 2) {
+            return "There is still one ship remaining."
+        }
+        if (array.length === 3) {
+            return "All ships have been sunk."
+        };
+    };
+
 };
 
 let block = new Gameboard;
 block.createBoard();
+
 
 module.exports = Gameboard;

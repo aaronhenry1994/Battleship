@@ -1,5 +1,3 @@
-const Gameboard = require('../src/gameboard');
-
 class Player {
     constructor(name) {
         this.name = name;
@@ -20,5 +18,4 @@ class Computer {
     };
 };
 
-module.exports = Player;
-module.exports = Computer;
+export { Player, Computer };

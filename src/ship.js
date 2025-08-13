@@ -25,6 +25,4 @@ class Ship {
     };
 };
 
-let chronicle = new Ship((1, 2), 2, 0, false);
-
-module.exports = Ship;
+export { Ship };

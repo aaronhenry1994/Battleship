@@ -1,5 +1,3 @@
-const Ship = require('../src/ship');
-
 class Node {
     constructor(x, y) {
         this.x = x;
@@ -98,8 +96,4 @@ class Gameboard {
 
 };
 
-let block = new Gameboard;
-block.createBoard();
-
-
-module.exports = Gameboard;
+export { Gameboard };

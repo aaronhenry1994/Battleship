@@ -1,8 +1,19 @@
-#grid-container {
+#player-board {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 1px;
     width: 600px;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+#cpu-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1px;
+    width: 600px;
+    padding: 10px;
     border: 1px solid black;
     margin: 0 auto;
 }

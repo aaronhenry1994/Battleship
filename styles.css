@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 1px;
-    width: 600px;
+    width: 500px;
+    height: 500px;
     padding: 10px;
     border: 1px solid black;
     margin: 0 auto;
@@ -12,8 +13,45 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 1px;
-    width: 600px;
+    width: 500px;
+    height: 500px;
     padding: 10px;
     border: 1px solid black;
     margin: 0 auto;
+}
+
+#ship-holder {
+    display: flex;
+    justify-self: left, center;
+    align-self: flex-end;
+    justify-content: center;
+    justify-content: space-around;
+    border: 1px solid black;
+    width: 850px;
+    height: 300px;
+}
+
+#ship-1 {
+    width: 50px;
+    height: 50px;
+    background-color: palevioletred;
+    border: 2px solid black;
+}
+
+#ship-2 {
+    width: 50px;
+    height: 100px;
+    background-color: goldenrod;
+    border: 2px solid black;
+}
+
+#ship-3 {
+    width: 50px;
+    height: 200px;
+    background-color: limegreen;
+    border: 2px solid black;
+}
+
+#game-pieces {
+    display: flex;
 }

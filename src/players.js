@@ -1,7 +1,9 @@
+import { Gameboard } from '../src/gameboard.js';
+
 class Player {
     constructor(name) {
         this.name = name;
-        playerBoard = new Gameboard();
+        const playerBoard = new Gameboard;
     };
 };
 

@@ -1,8 +1,10 @@
 class Ship {
-    constructor(position, long, holes, sunk) {
-        this.position = position;
+    constructor(x, y, long, holes, direction, sunk) {
+        this.x = x;
+        this.y = y;
         this.long = long;
         this.holes = holes;
+        this.direction = direction;
         this.sunk = sunk;
     };
 

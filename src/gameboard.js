@@ -1,3 +1,5 @@
+import { Ship } from '../src/ship.js';
+
 class Node {
     constructor(x, y) {
         this.x = x;
@@ -23,39 +25,44 @@ class Gameboard {
     };
 
     placeShip(x, y, length, direction) {
-        position = {
+        let position = {
             x: x,
             y: y,
         };
 
-        coordinates = [];
+        let coordinates = [];
 
         coordinates.push(position);
         this.arr.push(position);
 
         if (length = 1) {
             this.ships.push(coordinates);
-            return boat = new Ship(coordinates, 1, 0, false);
+            let boat = new Ship(coordinates, 1, 0, false);
+            return boat;
         }
         if (length = 2 && direction === 'horizontal') {
             coordinates.push(([x+1, y]))
             this.ships.push(coordinates);
-            return boat = new Ship(coordinates, 2, 0, false, 'horizontal');
+            let boat = new Ship(coordinates, 2, 0, false, 'horizontal');
+            return boat;
         };
         if (length = 3 && direction === 'horizontal') {
             this.ships.push(coordinates);
             coordinates.push(([x+2, y]));
-            return boat = new Ship(coordinates, 3, 0, false, 'horizontal');
+            let boat = new Ship(coordinates, 3, 0, false, 'horizontal');
+            return boat;
         };
         if (length = 2 && direction === 'vertical') {
             this.ships.push(coordinates);
             coordinates.push(([x, y + 1]))
-            return boat = new Ship(coordinates, 2, 0, false, 'vertical');
+            let boat = new Ship(coordinates, 2, 0, false, 'vertical');
+            return boat;
         };
         if (length = 3 && direction === 'vertical') {
             this.ships.push(coordinates);
             coordinates.push(([x, y + 2]));
-            return boat = new Ship(coordinates, 3, 0, false, 'vertical');
+            let boat = new Ship(coordinates, 3, 0, false, 'vertical');
+            return boat;
         };
     };
 

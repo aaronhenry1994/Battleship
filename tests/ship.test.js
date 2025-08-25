@@ -1,6 +1,6 @@
 const Ship = require('../src/ship');
 
-const abernathy = new Ship((2, 1),2, 0, false)
+const abernathy = new Ship(2, 1, 2, 0, false)
 
 test ('Makes a ship with a length of 2', () => {
     expect(abernathy.long).toBe(2);
@@ -26,6 +26,6 @@ test ('Sinks the ship', () => {
     expect(abernathy.isSunk(2, 2)).toBe(abernathy.sunk = true);
 })
 
-test ('Places a ship at a certain spot', () => {
-    expect(abernathy.position).toBe((2, 1))
+test ('Makes a ship with a length of 2', () => {
+    expect(abernathy.getSecondCoord(2, 'horizontal')).toBe(3, 1);
 })

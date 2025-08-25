@@ -16,7 +16,11 @@ const player_2 = new Computer;
     }
 } */
 
+let player1Board = new Gameboard;
+player1Board.placeShip(3, 4, 2, 'vertical');
+
 let playerShips = [];
+let cpuShips = [];
 
 let shipOne = new Ship(1, 2, 1, 0, 'horizontal', false);
 playerShips.push(shipOne);
@@ -28,6 +32,17 @@ let shipThree = new Ship (4, 8, 2, 0, 'horizontal', false);
 playerShips.push(shipTwo);
 
 console.log(playerShips);
+
+let cpuShipOne = new Ship(1, 2, 1, 0, 'horizontal', false);
+cpuShips.push(cpuShipOne);
+
+let cpuShipTwo = new Ship (4, 5, 2, 0, 'vertical', false);
+cpuShips.push(cpuShipTwo);
+
+let cpuShipThree = new Ship (4, 8, 2, 0, 'vertical', false);
+cpuShips.push(cpuShipThree);
+
+console.log(cpuShips);
 
 for (let x = 0; x < 10; x++) {
             for (let y = 0; y < 10; y++) {
@@ -80,8 +95,45 @@ for (let x = 0; x < 10; x++) {
                 console.log(x, y);
                 console.log("Player 1 clicked");
 
-                boxDiv.style.backgroundColor = 'red';
+                if (
+                    boxDiv.id === (cpuShipOne.x + '-' + cpuShipOne.y) ||
+                    boxDiv.id === (cpuShipTwo.x + '-' + cpuShipTwo.y) ||
+                    boxDiv.id === (cpuShipThree.x + '-' + cpuShipThree.y)
+                ) {
+                      boxDiv.style.backgroundColor = 'red';
+                } else {
+                        boxDiv.style.backgroundColor = 'white';
+                    }
 
+                if (cpuShipTwo.direction == 'vertical') {
+                    if (boxDiv.id === (cpuShipTwo.x + 1) + '-' + cpuShipTwo.y) {
+                        boxDiv.style.backgroundColor = 'red';
+                    }
+                }
+                if (cpuShipTwo.direction == 'horizontal') {
+                    if (boxDiv.id === cpuShipTwo.x + '-' + (cpuShipTwo.y + 1)) {
+                        boxDiv.style.backgroundColor = 'red';
+                    }
+                }
+                if (cpuShipThree.direction == 'vertical') {
+                    if (boxDiv.id === (cpuShipThree.x + 1) + '-' + cpuShipThree.y) {
+                        boxDiv.style.backgroundColor = 'red';
+                    }
+                    if (boxDiv.id === (cpuShipThree.x + 2) + '-' + cpuShipThree.y) {
+                        boxDiv.style.backgroundColor = 'red';
+                    }
+                }
+                if (cpuShipThree.direction == 'horizontal') {
+                    if (boxDiv.id === cpuShipThree.x + '-' + (cpuShipThree.y + 1)) {
+                        boxDiv.style.backgroundColor = 'red';
+                    }
+                    if (boxDiv.id === cpuShipThree.x + '-' + (cpuShipThree.y + 2)) {
+                        boxDiv.style.backgroundColor = 'red';
+                    }
+                }
+
+
+        
                 let computerObject = {
                     x: x,
                     y: y,

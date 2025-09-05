@@ -73,27 +73,51 @@ player1Board.createBoard = function() {
                 if (shipTwo.direction == 'horizontal') {
                     if (boxDiv.id === (shipTwo.x + 1) + '-' + shipTwo.y) {
                         boxDiv.style.backgroundColor = 'red';
+                        shipTwo.hit();
+                        if (shipTwo.holes === 2) {
+                            shipTwo.sunk = true;
+                        }
                     }
                 }
                 if (shipTwo.direction == 'vertical') {
                     if (boxDiv.id === shipTwo.x + '-' + (shipTwo.y + 1)) {
                         boxDiv.style.backgroundColor = 'red';
+                        shipTwo.hit();
+                        if (shipTwo.holes === 2) {
+                            shipTwo.sunk = true;
+                        }
                     }
                 }
                 if (shipThree.direction == 'horizontal') {
                     if (boxDiv.id === (shipThree.x + 1) + '-' + shipThree.y) {
                         boxDiv.style.backgroundColor = 'red';
+                        shipThree.hit();
+                        if (shipThree.holes === 3) {
+                            shipThree.sunk = true;
+                        }
                     }
                     if (boxDiv.id === (shipThree.x + 2) + '-' + shipThree.y) {
                         boxDiv.style.backgroundColor = 'red';
+                        shipThree.hit();
+                        if (shipThree.holes === 3) {
+                            shipThree.sunk = true;
+                        }
                     }
                 }
                 if (shipThree.direction == 'vertical') {
                     if (boxDiv.id === shipThree.x + '-' + (shipThree.y + 1)) {
                         boxDiv.style.backgroundColor = 'red';
+                        shipThree.hit();
+                        if (shipThree.holes === 3) {
+                            shipThree.sunk = true;
+                        };
                     }
                     if (boxDiv.id === shipThree.x + '-' + (shipThree.y + 2)) {
                         boxDiv.style.backgroundColor = 'red';
+                        shipThree.hit();
+                        if (shipThree.holes === 3) {
+                            shipThree.sunk = true;
+                        }
                     }
                 }
 
@@ -133,40 +157,86 @@ for (let y = 0; y < 10; y++) {
                     boxDiv.id === (cpuShipThree.x + '-' + cpuShipThree.y)
                 ) {
                       boxDiv.style.backgroundColor = 'red';
+                      if (boxDiv.id === (cpuShipOne.x + '-' + cpuShipOne.y)) {
+                        cpuShipOne.hit();
+                        if (cpuShipOne.sunk === true) {
+                            console.log('The computer has lost ship one.')
+                        }
+                      }
+                      if (boxDiv.id === (cpuShipTwo.x + '-' + cpuShipTwo.y)) {
+                        cpuShipTwo.hit();
+                        console.log('That is a hit.')
+                        if (cpuShipTwo.sunk === true) {
+                            console.log('The computer has lost ship two.')
+                        }
+                      }
+                      if (boxDiv.id === (cpuShipThree.x + '-' + cpuShipThree.y)) {
+                        cpuShipThree.hit();
+                        console.log(cpuShipThree.sunk);
+                        console.log('That is a hit.')
+                        if (cpuShipThree.sunk === true) {
+                            console.log('The computer has lost ship three.')
+                        }
+                      }
                 } else {
                         boxDiv.style.backgroundColor = 'white';
                     }
 
                 if (cpuShipTwo.direction == 'horizontal') {
                     if (boxDiv.id === (cpuShipTwo.x + 1) + '-' + cpuShipTwo.y) {
+                        cpuShipTwo.hit();
                         boxDiv.style.backgroundColor = 'red';
+                        if (cpuShipTwo.sunk === true) {
+                            console.log('The computer has lost ship two.')
+                        }
                     }
                 }
                 if (cpuShipTwo.direction == 'vertical') {
                     if (boxDiv.id === cpuShipTwo.x + '-' + (cpuShipTwo.y + 1)) {
+                        cpuShipTwo.hit();
                         boxDiv.style.backgroundColor = 'red';
+                        if (cpuShipTwo.sunk === true) {
+                            console.log('The computer has lost ship two.')
+                        }
                     }
                 }
                 if (cpuShipThree.direction == 'horizontal') {
                     if (boxDiv.id === (cpuShipThree.x + 1) + '-' + cpuShipThree.y) {
+                        cpuShipThree.hit();
+                        console.log(cpuShipThree.sunk);
                         boxDiv.style.backgroundColor = 'red';
+                        if (cpuShipThree.sunk === true) {
+                            console.log('The computer has lost ship three.')
+                        }
                     }
                     if (boxDiv.id === (cpuShipThree.x + 2) + '-' + cpuShipThree.y) {
+                        cpuShipThree.hit();
+                        console.log(cpuShipThree.sunk);
                         boxDiv.style.backgroundColor = 'red';
+                        if (cpuShipThree.sunk === true) {
+                            console.log('The computer has lost ship three.')
+                        }
                     }
                 }
                 if (cpuShipThree.direction == 'vertical') {
                     if (boxDiv.id === cpuShipThree.x + '-' + (cpuShipThree.y + 1)) {
+                        cpuShipThree.hit();
+                        console.log(cpuShipThree.sunk);
                         boxDiv.style.backgroundColor = 'red';
+                        if (cpuShipThree.sunk === true) {
+                            console.log('The computer has lost ship three.')
+                        }
                     }
                     if (boxDiv.id === cpuShipThree.x + '-' + (cpuShipThree.y + 2)) {
+                        cpuShipThree.hit();
+                        console.log(cpuShipThree.sunk);
                         boxDiv.style.backgroundColor = 'red';
+                        if (cpuShipThree.sunk === true) {
+                            console.log('The computer has lost ship three.')
+                        }
                     }
                 }
 
-                if (turnCycle.cpusTurn() === true) {
-                    e.preventDefault();
-                };
         
                 let computerObject = {
                     x: x,
@@ -204,6 +274,7 @@ class GameTurns {
             if (box.id === (computerChoice.x + '-' + computerChoice.y) && (computerChoice.x + '-' + computerChoice.y) === (playerShips[0].x + '-' + playerShips[0].y)) {
                 box.style.backgroundColor = 'red';
                 shipOne.hit();
+                console.log(shipOne.holes);
                 if (shipOne.sunk = true) {
                     console.log('Ship One has sunk.')
                 }
@@ -269,11 +340,12 @@ class GameTurns {
         });
         console.log(computerChoice);
 
-    }
+        }
     addCpuBoardEvent() {
         cpuBoard.addEventListener('click', (event) => {
             this.playerTurn(event);
-            console.log(this.playerTurn(event));
+            turnCycle.cpusTurn();
+            console.log(cpuShipOne.holes);
             // You can add more logic here if needed
         });
     }
@@ -283,12 +355,15 @@ let turn = new GameTurns();
 
 class GameController {
     playersTurn() {
-        turn.playerTurn(event);
+        turn.playerTurn();
+        turn.addCpuBoardEvent();
     };
     cpusTurn() {
         turn.computerTurn();
     };
 };
+
+console.log(cpuShipOne.holes);
 
 let turnCycle = new GameController();
 turnCycle.playersTurn();

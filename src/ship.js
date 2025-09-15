@@ -9,21 +9,20 @@ class Ship {
     };
 
     hit(shot) {
-
-        if (shot == false) {
-            return this.holes;
+    
+        if (shot === true) {
+            this.holes = this.holes + 1;
         };
-        if (shot == true) {
-            return this.holes + 1;
-        };
+        return this.holes;
     };
 
-    isSunk(long, holes) {
+    isSunk() {
 
-        if (holes === long) {
-            this.long = 0;
+        if (this.holes === this.long) {
             return this.sunk = true;
-        };
+        } else {
+            return false;
+        }
     };
 };
 

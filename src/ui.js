@@ -448,6 +448,7 @@ class GameTurns {
                             console.log('Ship three has been lost.')
                         };
                     };
+                    
                 };
                 };
             
@@ -471,14 +472,18 @@ let turn = new GameTurns();
 class GameController {
     playersTurn() {
         turn.playerTurn();
-        turn.addCpuBoardEvent();
-        turn.playerTurn();
+        setTimeout(() => {
+            turn.computerTurn();
+        }, 3000);
     };
     cpusTurn() {
         turn.computerTurn();
-        turn.playerTurn();
+        setTimeout(() => {
+            turn.playerTurn();
+        }, 3000);
     };
 };
 
 let turnCycle = new GameController();
 turnCycle.playersTurn();
+turnCycle.cpusTurn();

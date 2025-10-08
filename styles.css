@@ -67,3 +67,13 @@
 #shipThree-inputs {
     display: flex;
 }
+
+#form {
+    display: grid;
+    justify-content: center;
+}
+
+#turn-tracker {
+    display: flex;
+    justify-content: center;
+}

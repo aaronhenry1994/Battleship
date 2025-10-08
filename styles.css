@@ -55,3 +55,15 @@
 #game-pieces {
     display: flex;
 }
+
+#shipOne-inputs {
+    display: flex;
+}
+
+#shipTwo-inputs {
+    display: flex;
+}
+
+#shipThree-inputs {
+    display: flex;
+}

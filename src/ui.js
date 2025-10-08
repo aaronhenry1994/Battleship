@@ -18,7 +18,7 @@ ships.push(shipOne);
 let shipTwo = new Ship (4, 5, 2, 0, 'vertical', false);
 ships.push(shipTwo);
 
-let shipThree = new Ship (4, 8, 2, 0, 'horizontal', false);
+let shipThree = new Ship (4, 8, 3, 0, 'horizontal', false);
 ships.push(shipThree);
 
 console.log(ships);
@@ -91,111 +91,18 @@ player1Board.createBoard = function() {
                 }
             }
 
+            if (
+                    ships[0].holes === 1 &&
+                    ships[1].holes === 2 &&
+                    ships[2].holes === 3
+                ) {
+                    console.log('You have lost.')
+                    turnTracker.innerText = 'You have lost.'
+                }
+
                 boxDiv.addEventListener('click', () => {
                 console.log(boxDiv.id);
                 e.preventDefault();
-                
-                /*if (
-                    box.id === (ships[0].x + '-' + ships[0].y) ||
-                    box.id === (ships[1].x + '-' + ships[1].y) ||
-                    box.id === (ships[2].x + '-' + ships[2].y)
-                ) {
-                    if (box.id === (ships[0].x + '-' + ships[0].y)) {
-                        shipOne.hit(true)
-                        console.log(shipOne.holes);
-                        console.log(shipOne.isSunk());
-                        box.style.backgroundColor = 'red';
-                        if (shipOne.holes === 1) {
-                            shipOne.isSunk();
-                            console.log('Ship one has been lost.')
-                        };
-                    };
-                    if (box.id === (ships[1].x + '-' + ships[1].y)) {
-                        shipTwo.hit(true)
-                        console.log(shipTwo.holes);
-                        console.log(shipTwo.isSunk());
-                        if (shipTwo.holes === 2) {
-                            console.log('Ship two has been lost.')
-                        }
-                        shipTwo.isSunk();
-                        box.style.backgroundColor = 'red';
-                    };
-                    if (box.id === (ships[2].x + '-' + ships[2].y)) {
-                        shipThree.hit(true)
-                        console.log(shipThree.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipThree.holes === 3) {
-                            shipThree.isSunk();
-                            console.log('Ship three has been lost.')
-                        }
-                    }
-                }
-                if (ships[1].direction === 'horizontal') {
-                    if (box.id === (ships[1].x + 1) + '-' + ships[1].y) {
-                        shipTwo.hit(true);
-                        console.log(shipTwo.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipTwo.holes === 2) {
-                            shipTwo.isSunk();
-                            console.log('Ship two has been lost.')
-                        };
-                    };
-                }
-                if (ships[1].direction === 'vertical') {
-                    if (box.id === ships[1].x + '-' + (ships[1].y + 1)) {
-                        shipTwo.hit(true);
-                        console.log(shipTwo.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipTwo.holes === 2) {
-                            shipTwo.isSunk();
-                            console.log('Ship two has been lost.')
-                        };
-                    };
-                };
-                if (ships[2].direction === 'horizontal') {
-                    if (box.id === (ships[2].x + 1) + '-' + ships[2].y) {
-                        shipThree.hit(true);
-                        console.log(shipThree.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipThree.holes === 3) {
-                            shipThree.isSunk();
-                            console.log('Ship three has been lost.')
-                        }
-                    }
-                }
-                if (ships[2].direction === 'horizontal') {
-                    if (box.id === (ships[2].x + 2) + '-' + ships[2].y) {
-                        shipThree.hit(true);
-                        console.log(shipThree.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipThree.holes === 3) {
-                            shipThree.isSunk();
-                            console.log('Ship three has been lost.')
-                        }
-                    }
-                }
-                if (ships[2].direction === 'vertical') {
-                    if (box.id === ships[2].x + '-' + (ships[2].y + 1)) {
-                        shipThree.hit(true);
-                        console.log(shipThree.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipThree.holes === 3) {
-                            shipThree.isSunk();
-                            console.log('Ship three has been lost.')
-                        }
-                    }
-                }
-                if (ships[2].direction === 'vertical') {
-                    if (box.id === ships[2].x + '-' + (ships[2].y + 2)) {
-                        shipThree.hit(true);
-                        console.log(shipThree.holes);
-                        box.style.backgroundColor = 'red';
-                        if (shipThree.holes === 3) {
-                            shipThree.isSunk();
-                            console.log('Ship three has been lost.')
-                        }
-                    }
-                }*/
 
                 
                 console.log(x, y);
@@ -321,6 +228,14 @@ for (let y = 0; y < 10; y++) {
                             console.log('The computer has lost ship three.')
                         }
                     };
+                if (
+                    cpuShips[0].holes === 1 &&
+                    cpuShips[1].holes === 2 &&
+                    cpuShips[2].holes === 3
+                ) {
+                    console.log('The computer has lost.')
+                    turnTracker.innerText = 'The computer has lost.'
+                }
 
         
                 let computerObject = {
@@ -339,8 +254,6 @@ for (let y = 0; y < 10; y++) {
 const turnTracker = document.getElementById('turn-tracker');
 const player = new Player('Player One');
 const computerElement = new Computer();
-
-
 
 class GameTurns {
     playerTurn(event = 'click') {
@@ -486,4 +399,3 @@ class GameController {
 
 let turnCycle = new GameController();
 turnCycle.playersTurn();
-turnCycle.cpusTurn();

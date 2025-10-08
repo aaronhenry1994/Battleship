@@ -14,6 +14,24 @@
     <div>
         <div id="turn-tracker"></div>
     </div>
+    <form action="ui.js">
+        <div id="shipOne-inputs"> Ship One's position
+            <input type="text" placeholder="x" id="shipOne-x">
+            <input type="text" placeholder="y" id="shipOne-y">
+            <input type="text" placeholder="direction" id="shipOne-direction">
+        </div>
+        <div id="shipTwo-inputs"> Ship Two's position
+            <input type="text" placeholder="x" id="shipTwo-x">
+            <input type="text" placeholder="y" id="shipTwo-y">
+            <input type="text" placeholder="direction" id="shipTwo-direction">
+        </div>
+        <div id="shipThree-inputs"> Ship Three position
+            <input type="text" placeholder="x" id="shipThree-x">
+            <input type="text" placeholder="y" id="shipThree-y">
+            <input type="text" placeholder="direction" id="shipThree-direction">
+        </div>
+        <button id="submitBtn">Submit</button>
+    </form>
 </body>
 <script type="module" src="src/ui.js"></script>
 <script type="module" src="src/gameboard.js"></script>
